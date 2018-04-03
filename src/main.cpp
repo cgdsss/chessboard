@@ -41,17 +41,19 @@ int main (int argc, char **argv)
     std::cout << "size num of width: " << width_size << std::endl;
     strcat (fname, ".pdf");
 
-    int blockSize=75;
+    int blockSize=600;
     int imageSize_length=blockSize*length_size;
     int imageSize_width=blockSize*width_size;
     Mat chessBoard(imageSize_width,imageSize_length,CV_8UC3,Scalar::all(0));
-    unsigned char color=0;
+    unsigned char color1=0;
+    unsigned char color2=0;
      for(int i=0;i<imageSize_length;i=i+blockSize){
-      color=~color;
+      color1=~color1;
+      color2 = color1;
        for(int j=0;j<imageSize_width;j=j+blockSize){
        Mat ROI=chessBoard(Rect(i,j,blockSize,blockSize));
-       ROI.setTo(Scalar::all(color));
-       color=~color;
+       ROI.setTo(Scalar::all(color2));
+       color2=~color2;
       }
      }
     imwrite("chessboard.png", chessBoard);
@@ -97,3 +99,4 @@ int main (int argc, char **argv)
 
     return 0;
 }
+
