@@ -1,5 +1,5 @@
 # chessboard
-Chessboard(checkerboard) generator for camera calibration
+Chessboard (checkerboard) generator for camera calibration
 ### Install libharu
 ```
 https://github.com/libharu/libharu
